@@ -9,25 +9,24 @@
   let items = []
   let totalScore = 0
 
-  for (i = 0; i < values.length; i++) {
+  for (i = 0; i < values.length; i) {
     
 
-    let stringCheck =  values[i].toString()
-    let stringLength = stringCheck.length
-    let half1 = stringCheck.substring(0, stringLength/2).split('')
-    let half2 = stringCheck.substring(stringLength/2).split('')
+    let string1 = values[i].split('')
+    let string2 = values[i+1].toString()
+    let string3 = values[i+2].toString()
     let letterFound
 
-
-    for (let item1 of half1) {
-      for (let item2 of half2) {
-        if(item1 === item2){
+    for (let item1 of string1) {
+      if(string2.includes(item1)) {
+        if(string3.includes(item1)) {
           letterFound = item1
         }
       }
     }
 
     items.push(letterFound)
+    i = i + 3
 
  }
 
